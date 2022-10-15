@@ -1,0 +1,13 @@
+# https://www.makeuseof.com/what-is-systemd-launch-programs-raspberry-pi/
+# save in /lib/systemd/system/kasa.service
+# sudo systemctl start kasa.service
+# sudo systemctl enable kasa.service
+[Unit]
+Description=kasa-control
+After=network.target
+[Service]
+ExecStart=/usr/bin/python -u /home/pi/kasa-control.py
+Restart=always
+User=pi
+[Install]
+WantedBy=multi-user.target
